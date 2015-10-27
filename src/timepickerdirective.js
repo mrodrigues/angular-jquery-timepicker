@@ -85,7 +85,8 @@ angular.module('ui.timepicker', [])
 
             if(element.is('input'))  {
                 ngModel.$parsers.unshift(function(viewValue){
-                    if (angular.isUndefined(attrs.required) && viewValue === '') {
+                    // TODO: Allow configuration to ignore blank values.
+                    if (viewValue === '') {
                         ngModel.$setValidity('time', true);
                         return viewValue;
                     }
